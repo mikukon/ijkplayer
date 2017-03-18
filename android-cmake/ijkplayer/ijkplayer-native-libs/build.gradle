@@ -1,0 +1,43 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
+    publishNonDefault  true
+
+    defaultConfig {
+        minSdkVersion 9
+        targetSdkVersion rootProject.ext.targetSdkVersion
+
+        externalNativeBuild {
+            cmake {
+                targets "android-ndk-profiler","ijkj4a","yuv_static","ijksdl","ijkplayer"
+                abiFilters 'armeabi-v7a'
+                cFlags '-DNDEBUG'
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    sourceSets{
+        main{
+            jniLibs.srcDir 'libs'
+        }
+    }
+
+    externalNativeBuild {
+        cmake {
+            path "CMakeLists.txt"
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+}
