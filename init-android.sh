@@ -47,12 +47,3 @@ pull_fork "x86_64"
 
 ./init-config.sh
 ./init-android-libyuv.sh
-
-
-if [  -d 'ijkmedia/ijkyuv' ]; then
-        if [ ! -f 'ijkmedia/ijkyuv/origin_CMakeLists.txt' ]; then
-            mv ijkmedia/ijkyuv/CMakeLists.txt ijkmedia/ijkyuv/origin_CMakeLists.txt
-        fi
-
-        cp yuv_cmakelists.txt ijkmedia/ijkyuv/CMakeLists.txt
-fi

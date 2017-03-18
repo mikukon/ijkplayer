@@ -33,3 +33,9 @@ sh $TOOLS/pull-repo-ref.sh $IJK_LIBYUV_FORK ijkmedia/ijkyuv ${IJK_LIBYUV_LOCAL_R
 cd ijkmedia/ijkyuv
 git checkout ${IJK_LIBYUV_COMMIT}
 cd -
+if [  -d 'ijkmedia/ijkyuv' ]; then
+        if [ ! -f 'ijkmedia/ijkyuv/origin_CMakeLists.txt' ]; then
+            mv ijkmedia/ijkyuv/CMakeLists.txt ijkmedia/ijkyuv/origin_CMakeLists.txt
+        fi
+        cp yuv_cmakelists.txt ijkmedia/ijkyuv/CMakeLists.txt
+fi

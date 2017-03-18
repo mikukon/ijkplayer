@@ -1,5 +1,20 @@
 cmake_minimum_required(VERSION 3.4.1)
 
+
+#windows下无法执行version.sh,所以先注释这段
+#解决方案1就是windows下使用bat代替sh
+#解决方案2只在unix/linux下编译
+#解决方案3另外写个sh在根目录，用开发者在cygwin下自己执行
+
+#add_custom_target(Test1)
+
+#add_custom_command(TARGET Test1
+#  PRE_BUILD
+#  COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/version.sh ${CMAKE_CURRENT_SOURCE_DIR} ijkversion.h
+#  COMMENT "This command will be executed before building target Test1"
+# )
+
+
 if(${ANDROID_ABI} STREQUAL armeabi-v7a)
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -mfloat-abi=soft -std=c99")
 elseif()
