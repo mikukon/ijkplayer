@@ -4,7 +4,7 @@ set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=c99")
 
 include_directories(${CMAKE_CURRENT_SOURCE_DIR}
                     ${CMAKE_CURRENT_SOURCE_DIR}/..
-                    ${CMAKE_CURRENT_SOURCE_DIR}/../../../../../../../../android/contrib/build/ffmpeg-armv7a/output/include
+                    ${ijkffmpeg_target_inc_dir}
                     ${CMAKE_CURRENT_SOURCE_DIR}/../ijkyuv/include
                     ${CMAKE_CURRENT_SOURCE_DIR}/../ijkj4a)
 
@@ -57,7 +57,7 @@ add_library(ffmpeg
             IMPORTED)
 
 set_target_properties(ffmpeg PROPERTIES IMPORTED_LOCATION
-                      ${CMAKE_CURRENT_SOURCE_DIR}/../../../../../../../../android/contrib/build/ffmpeg-armv7a/output/libijkffmpeg.so)
+                                          ${ijkffmpeg_target_lib_path}/libijkffmpeg.so)
 
 add_library(ijksdl
             SHARED

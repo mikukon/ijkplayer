@@ -11,9 +11,9 @@ android {
 
         externalNativeBuild {
             cmake {
+                arguments "-DANDROID_TOOLCHAIN=clang"
                 targets "android-ndk-profiler","ijkj4a","yuv_static","ijksdl","ijkplayer"
                 abiFilters 'armeabi-v7a'
-                cFlags '-DNDEBUG'
             }
         }
     }
