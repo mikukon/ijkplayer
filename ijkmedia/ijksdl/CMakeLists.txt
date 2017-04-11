@@ -63,6 +63,11 @@ add_library(ijksdl
             SHARED
             ${sdl_files})
 
+add_custom_command(TARGET ijksdl
+           PRE_BUILD
+           COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/../ijkplayer/version.sh ${CMAKE_CURRENT_SOURCE_DIR}/../ijkplayer/ ijkversion.h
+           COMMENT "This command will be executed before building target Test1")
+
 target_link_libraries(ijksdl
                     log
                     android

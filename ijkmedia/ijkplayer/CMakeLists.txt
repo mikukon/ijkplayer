@@ -65,12 +65,6 @@ add_library(ijkplayer
             SHARED
             ${ply_files})
 
-#add_custom_command(TARGET ijkplayer
-#    PRE_BUILD
-#    COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/version.sh /Users/amos/ios ijkversion.h
-#    COMMENT "This command will be executed before building target Test1"
-#    )
-
 target_link_libraries(ijkplayer
                     log
                     android
